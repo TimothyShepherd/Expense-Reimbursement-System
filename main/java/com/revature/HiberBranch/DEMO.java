@@ -12,6 +12,6 @@ public class DEMO {
      AppInitialize.startup();
      AppMulTicket.multipleTickets();
      AppLoginCheck.loginCheck();
-        
+     AppPending.test();
     }
 }

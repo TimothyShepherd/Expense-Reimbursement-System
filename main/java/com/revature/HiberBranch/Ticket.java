@@ -75,12 +75,16 @@ public class Ticket {
 
     
     public String print(){
-    	String s = "id: " +id+ "\tReimbursment: " + reimbursment+"\tstatus: "+status+"\tdate: "+date+"\t Employee: " + employee.getName();
+    	String s = "id: " +id+ "\tReimbursment: " + reimbursment+"\tstatus: "+status+"\tdate: "+date+"\t Employee: " + employee.getName() +"\t Employee ID: "+employee.getId();
     	System.out.println(s);
     	return s;
     }
     
     public Employee getEmployee(){
     	return this.employee;
+    }
+    
+    public void setStatus(String st){
+    	this.status = st;
     }
 }

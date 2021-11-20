@@ -83,19 +83,6 @@ public class TicketDaoImplementation {
 		
 	}
 	
-	/*public List<Ticket> getPendingTickets(){
-        // open the session
-        Session session = factory.openSession();
-        // begin the transaction
-        Transaction t = session.beginTransaction();
-        //Returns all from hibernate query select FROM Ticket t WHERE id=
-		String hql = "select t FROM Ticket t WHERE t.status = pending";
-		Query query = session.createQuery(hql);
-		List results = query.list();
-		System.out.println(results);
-		session.close();
-		return results;
-	}*/
 	
 	public List<Ticket> getPendingTickets(){
 		Session session = factory.openSession();
@@ -112,25 +99,79 @@ public class TicketDaoImplementation {
 		return results;
 	}
 	
-	public Employee getEmployeebyID(int id){
+	//get ONLY PENDING tickets
+	public List<Ticket> getPendingTicketsEmployeesId(int id){
         // open the session
         Session session = factory.openSession();
         // begin the transaction
-        Transaction t = session.beginTransaction();
-		Employee e = session.get(Employee.class, id);
-        return e;
+        Criteria query = session.createCriteria(Ticket.class);
+        query.add(Restrictions.eq("employee.id", id));
+        query.add(Restrictions.eq("status", "pending"));
+        List<Ticket> results = query.list();
+        
+		System.out.println(results);
+		session.close();
+		return results;
 	}
 	
-	public void deleteEmployee(int id){
+	public Ticket getTicketbyID(int id){
         // open the session
         Session session = factory.openSession();
         // begin the transaction
         Transaction t = session.beginTransaction();
-        Employee employee = getEmployeebyID(id);
-        session.remove(employee);
-        t.commit();
+		Ticket e = session.get(Ticket.class, id);
+		session.close();
+		return e;
+	}
+	
+	public boolean isPending(Ticket ticket){
+		boolean answer = ticket.getStatus().equals("pending");
+		System.out.println(answer);
+		return answer;
+	}
+	
+	public void approveTicket(int id){
+        // open the session
+        Session session = factory.openSession();
+        
+        // begin the transaction
+        Transaction t = session.beginTransaction();
+        //evict first
+        Ticket ticket = getTicketbyID(id);
+        if(isPending(ticket)){
+        session.evict(ticket);
+        //change
+        ticket.setStatus("approved");
+        // update 
+        session.update(ticket);
+        // commit the transaction
+        t.commit();}
+        
         // close the connection
         session.close();
 	}
+	
+	public void rejectTicket(int id){
+        // open the session
+        Session session = factory.openSession();
+        
+        // begin the transaction
+        Transaction t = session.beginTransaction();
+        //evict first
+        Ticket ticket = getTicketbyID(id);
+        if(isPending(ticket)){
+        session.evict(ticket);
+        //change
+        ticket.setStatus("rejected");
+        // update 
+        session.update(ticket);
+        // commit the transaction
+        t.commit();
+        }
+        // close the connection
+        session.close();
+	}
+	
+	
 	
 }

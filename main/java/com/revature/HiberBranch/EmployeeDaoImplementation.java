@@ -115,12 +115,13 @@ public class EmployeeDaoImplementation {
 		return results;
 	}
 	
+	//Get ALL TICKETS.
 	public List<Ticket> getTicketsEmployeesId(int id){
         // open the session
         Session session = factory.openSession();
         // begin the transaction
        
-        Employee e = getEmployeebyID(id);
+        //Employee e = getEmployeebyID(id);
         Criteria query = session.createCriteria(Employee.class);
         query.add(Restrictions.eq("id", id));
         //Cast is mine
