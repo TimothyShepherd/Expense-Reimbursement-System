@@ -19,6 +19,7 @@ public class Employee {
     private String name;
     private String password="";
     
+    
     @OneToMany(mappedBy="employee",cascade = CascadeType.ALL)
     private List<Ticket> tickets = new ArrayList<Ticket>();
 

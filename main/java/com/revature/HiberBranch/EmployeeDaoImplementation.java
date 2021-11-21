@@ -135,6 +135,26 @@ public class EmployeeDaoImplementation {
 		return results;
 	}
 	
+	public int getByNamePass(String name, String password){
+        // open the session
+        Session session = factory.openSession();
+        // begin the transaction
+       
+        //Employee e = getEmployeebyID(id);
+        Criteria query = session.createCriteria(Employee.class);
+        query.add(Restrictions.eq("name", name));
+        query.add(Restrictions.eq("password", password));
+        //Cast is mine
+        if(query.list().isEmpty()){
+            return -1;	
+            }
+            
+        Employee me = (Employee) query.list().get(0);
+		
+		session.close();
+		return me.getId();
+	}
+	
 	public Employee getEmployeebyID(int id){
         // open the session
         Session session = factory.openSession();

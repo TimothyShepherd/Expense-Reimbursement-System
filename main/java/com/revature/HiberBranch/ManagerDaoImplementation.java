@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 
 public class ManagerDaoImplementation {
 
@@ -38,6 +39,26 @@ public class ManagerDaoImplementation {
 			System.out.println("no entries");
 		}
 		return id;
+	}
+	
+	public int getByNamePass(String name, String password){
+        // open the session
+        Session session = factory.openSession();
+        // begin the transaction
+       
+        //Employee e = getEmployeebyID(id);
+        Criteria query = session.createCriteria(Manager.class);
+        query.add(Restrictions.eq("name", name));
+        query.add(Restrictions.eq("password", password));
+        //Cast is mine
+        if(query.list().isEmpty()){
+            return -1;	
+            }
+            
+        Manager me = (Manager) query.list().get(0);
+		
+		session.close();
+		return me.getId();
 	}
 	
 	public void addManager(String name, String password){

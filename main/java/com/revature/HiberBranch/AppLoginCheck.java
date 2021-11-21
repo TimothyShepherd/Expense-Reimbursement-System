@@ -30,8 +30,8 @@ public class AppLoginCheck
         Employee e = dao.getEmployeebyID(idE);
         Manager m = mdao.getManagerbyID(idM);
         
-        String eName = "George";
-        String ePass = "Jungle";
+        String eName = "Otaku";
+        String ePass = "Jones";
         String nName = "nadf";
         String nPass = "garf";
         String mName = "Ruben";
@@ -41,10 +41,10 @@ public class AppLoginCheck
         int flagm =(mName.compareTo(m.getName())+mPass.compareTo(m.getPassword()));
         int flagN =(nName.compareTo(e.getName())+nPass.compareTo(e.getPassword()));
         int flagP =(nName.compareTo(m.getName())+nPass.compareTo(m.getPassword()));
-        boolean flagFunctionE = Login.loginEmployee(idE, eName, ePass);
-        boolean flagFunctionM = Login.loginManager(idM, mName, mPass);
-        boolean flagFunctionN = Login.loginEmployee(idE, nName, nPass);
-        boolean flagFunctionP = Login.loginManager(idM, nName, nPass);
+        int flagFunctionE = Login.loginEmployee(eName, ePass);
+        int flagFunctionM = Login.loginManager(mName, mPass);
+        int flagFunctionN = Login.loginEmployee(nName, nPass);
+        int flagFunctionP = Login.loginManager(nName, nPass);
         System.out.println("Flage = "+flage + "\t eMethod: "+flagFunctionE);
         System.out.println("Flagm = "+flagm + "\t mMethod: "+flagFunctionM);
         System.out.println("Flagn = "+flagN + "\t NMethod: "+flagFunctionN);
