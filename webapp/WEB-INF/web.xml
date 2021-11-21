@@ -8,12 +8,11 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
           version="3.1">
 
-
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
     <servlet-name>LoginEmployee</servlet-name>
-    <servlet-class>LoginEmployee</servlet-class>
+    <servlet-class>com.revature.LoginEmployee</servlet-class>
   </servlet>
 
   <servlet-mapping>
@@ -22,7 +21,7 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>LoginManager</servlet-name>
+    <servlet-name>com.revature.Servlets.LoginManager</servlet-name>
     <servlet-class>LoginManager</servlet-class>
   </servlet>
 
@@ -38,7 +37,7 @@
 
   <servlet>
     <servlet-name>Logout</servlet-name>
-    <servlet-class>Logout</servlet-class>
+    <servlet-class>com.revature.Servlets.Logout</servlet-class>
   </servlet>
 
   <servlet-mapping>
@@ -47,73 +46,73 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>EmployeePage</servlet-name>
-    <servlet-class>EmployeePage</servlet-class>
+    <servlet-name>MakeTicket</servlet-name>
+    <servlet-class>com.revature.Servlets.MakeTicket</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>EmployeePage</servlet-name>
-    <url-pattern>/employeepage</url-pattern>
+    <servlet-name>MakeTicket</servlet-name>
+    <url-pattern>/maketicket</url-pattern>
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>ManagerPage</servlet-name>
-    <servlet-class>ManagerPage</servlet-class>
+    <servlet-name>EmpViewTickets</servlet-name>
+    <servlet-class>com.revature.Servlets.EmpViewTickets</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>ManagerPage</servlet-name>
-    <url-pattern>/managerpage</url-pattern>
+    <servlet-name>EmpViewTickets</servlet-name>
+    <url-pattern>/empviewtickets</url-pattern>
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>ViewTicket</servlet-name>
-    <servlet-class>ViewTicket</servlet-class>
+    <servlet-name>MgrViewTickets</servlet-name>
+    <servlet-class>com.revature.Servlets.MgrViewTickets</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>ViewTicket</servlet-name>
-    <url-pattern>/viewticket</url-pattern>
+    <servlet-name>MgrViewTickets</servlet-name>
+    <url-pattern>/mgrviewtickets</url-pattern>
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>MgrViewPend</servlet-name>
-    <servlet-class>MgrViewPend</servlet-class>
+    <servlet-name>EmpViewPending</servlet-name>
+    <servlet-class>com.revature.Servlets.EmpViewPending</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>MgrViewPend</servlet-name>
-    <url-pattern>/mgrview</url-pattern>
+    <servlet-name>EmpViewPending</servlet-name>
+    <url-pattern>/empviewpending</url-pattern>
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>EmpViewPend</servlet-name>
-    <servlet-class>EmpViewPend</servlet-class>
+    <servlet-name>MgrViewPending</servlet-name>
+    <servlet-class>com.revature.Servlets.MgrViewPending</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>EmpViewPend</servlet-name>
-    <url-pattern>/empview</url-pattern>
+    <servlet-name>MgrViewPending</servlet-name>
+    <url-pattern>/mgrviewpending</url-pattern>
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>ApproveReq</servlet-name>
-    <servlet-class>ApproveReq</servlet-class>
+    <servlet-name>ApproveRequest</servlet-name>
+    <servlet-class>com.revature.Servlets.ApproveRequest</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>ApproveReq</servlet-name>
-    <url-pattern>/approve</url-pattern>
+    <servlet-name>ApproveRequest</servlet-name>
+    <url-pattern>/approverequest</url-pattern>
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>DenyReq</servlet-name>
-    <servlet-class>DenyReq</servlet-class>
+    <servlet-name>DenyRequest</servlet-name>
+    <servlet-class>com.revature.Servlets.DenyRequest</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>DenyReq</servlet-name>
-    <url-pattern>/deny</url-pattern>
+    <servlet-name>DenyRequest</servlet-name>
+    <url-pattern>/denyrequest</url-pattern>
   </servlet-mapping>
 
 </web-app>
