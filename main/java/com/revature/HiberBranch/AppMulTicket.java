@@ -25,8 +25,8 @@ public class AppMulTicket
         EmployeeDaoImplementation dao = DaoFactory.getEmployeeDao();
         TicketDaoImplementation tdao = DaoFactory.getTicketDao();
         
-        tdao.addTicket(1330f, "approved", "03/09/2019", 3);
-        tdao.addTicket(1740f, "approved", "05/09/202021", 4);
+        tdao.addTicket(1330f, "approved", "03/09/2019", 3,"Went for a hike to meet clients");
+        tdao.addTicket(1740f, "approved", "05/09/202021", 4,"I fell during business hours");
         List<Ticket> L = dao.getTicketsEmployeesId(3);
         
         //This one fails:

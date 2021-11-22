@@ -31,7 +31,7 @@ public class Request {
 	}
 	
 	//submit a new ticket, always as pending
-	public static void submitRequest(float reimbursment, String date,int employeeId ){
-		tdao.addTicket(reimbursment, "pending", date, employeeId);
+	public static void submitRequest(float reimbursment, String date,int employeeId, String reason){
+		tdao.addTicket(reimbursment, "pending", date, employeeId,reason);
 	}
 }

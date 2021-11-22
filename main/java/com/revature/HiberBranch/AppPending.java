@@ -25,7 +25,8 @@ public class AppPending
     	//List<Ticket> List = Request.getPendingRequests();
     	//Request.approveRequest(2);
     	//Request.rejectRequest(4);
-    	Request.submitRequest(1500f, "5/5/2010", 1);
+    	Request.submitRequest(1500f, "5/5/2010", 1,"Test submission, may approve or reject");
+    	Request.submitRequest(1500f, "5/5/2010", 2,"Test submission, may approve or reject");
     	List<Ticket> List = Request.getPendingForUser(2);
     	List<Ticket> List1 = Request.getAllTicketsForUser(3);
        	List<Ticket> List2 = Request.getPendingRequests();

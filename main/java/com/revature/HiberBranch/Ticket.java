@@ -16,6 +16,7 @@ public class Ticket {
     private float reimbursment;
     private String status="";
     private String date="";
+    private String reason="";
     
     @ManyToOne
     @JoinColumn(name="FK_employeeId")
@@ -23,19 +24,20 @@ public class Ticket {
 
     public Ticket(){}
     
-    public Ticket(float reimbursment, String status,String date,Employee employee) {
+    public Ticket(float reimbursment, String status,String date,Employee employee,String reason) {
         this.reimbursment = reimbursment;
         this.status = status;
         this.date = date;
         this.employee=employee;
+        this.reason = reason;
     }
     
-    public Ticket(int id, float reimbursment, String status,String date) {
+    public Ticket(int id, float reimbursment, String status,String date, String reason) {
         this.id = id;
         this.reimbursment = reimbursment;
         this.status = status;
         this.date = date;
-        
+        this.reason = reason;
     }
 
     public int getId() {
@@ -86,5 +88,13 @@ public class Ticket {
     
     public void setStatus(String st){
     	this.status = st;
+    }
+    
+    public void setReason(String reason){
+    	this.reason = reason;
+    }
+    
+    public String getReason(){
+    	return reason;
     }
 }

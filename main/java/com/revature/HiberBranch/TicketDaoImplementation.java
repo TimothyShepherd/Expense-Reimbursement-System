@@ -39,7 +39,7 @@ public class TicketDaoImplementation {
 		return id;
 	}
 	
-	public void addTicket(float reimbursment, String status, String date, int employeeId){
+	public void addTicket(float reimbursment, String status, String date, int employeeId,String reason){
 		System.out.println("Adding Ticket...");
 
         // open the session
@@ -50,7 +50,7 @@ public class TicketDaoImplementation {
         // create employee
         EmployeeDaoImplementation eDao = DaoFactory.getEmployeeDao();
         Employee employee = eDao.getEmployeebyID(employeeId);
-        Ticket ticket = new Ticket(reimbursment, status, date, employee);
+        Ticket ticket = new Ticket(reimbursment, status, date, employee,reason);
     
 
         // save the employee
