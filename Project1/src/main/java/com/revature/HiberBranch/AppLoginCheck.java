@@ -13,30 +13,30 @@ import com.revature.EmployeePrevious;
  *drop table employee;
  *drop table hibernate_sequence;
  */
-public class AppLoginCheck 
+public class AppLoginCheck
 {
     public static void main( String[] args ){
         loginCheck();
     }
-    
+
     public static void loginCheck(){
-    	System.out.println("Login check started...");
+        System.out.println("Login check started...");
         EmployeeDaoImplementation dao = DaoFactory.getEmployeeDao();
         ManagerDaoImplementation mdao = DaoFactory.getManagerDao();
-        
+
         int idE = 1;
         int idM = 1;
-        
+
         Employee e = dao.getEmployeebyID(idE);
         Manager m = mdao.getManagerbyID(idM);
-        
+
         String eName = "Otaku";
         String ePass = "Jones";
         String nName = "nadf";
         String nPass = "garf";
         String mName = "Ruben";
         String mPass = "Rodriguez";
-       
+
         int flage =(eName.compareTo(e.getName())+ePass.compareTo(e.getPassword()));
         int flagm =(mName.compareTo(m.getName())+mPass.compareTo(m.getPassword()));
         int flagN =(nName.compareTo(e.getName())+nPass.compareTo(e.getPassword()));

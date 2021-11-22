@@ -22,6 +22,7 @@ public class MakeTicket extends HttpServlet{
         request.getRequestDispatcher("employeeportal.html").include(request, response);
 
         float reimbursement = Float.parseFloat((request.getParameter("reimbursement")));
+        String reason = request.getParameter("reason");
 
         // Gets today's date
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -41,7 +42,7 @@ public class MakeTicket extends HttpServlet{
             }
         }
 
-        Request.submitRequest(reimbursement, date, employeeId);
+        Request.submitRequest(reimbursement, date, employeeId, reason);
 
     }
 }

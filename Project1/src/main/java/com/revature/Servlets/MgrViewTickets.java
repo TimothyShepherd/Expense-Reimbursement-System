@@ -28,6 +28,7 @@ public class MgrViewTickets extends HttpServlet{
         out.println("<table><thead>");
         out.print("<td>ID: </td>");
         out.print("<td>Reimbursement: </td>");
+        out.print("<td>Reason</td>");
         out.print("<td>Date: </td>");
         out.print("<td>Status: </td>");
         out.print("</thead>");
@@ -36,6 +37,7 @@ public class MgrViewTickets extends HttpServlet{
             out.print("<tr>");
             out.print("<td>" + x.getId() + "</td>");
             out.print("<td>" + x.getReimbursment() + "</td>");
+            out.print("<td>" + x.getReason() + "</td>");
             out.print("<td>" + x.getDate() + "</td>");
             out.print("<td>" + x.getStatus() + "</td>");
             out.print("</tr>");

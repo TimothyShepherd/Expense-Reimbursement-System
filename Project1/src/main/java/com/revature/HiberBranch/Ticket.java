@@ -12,30 +12,32 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY,generator="seq")
     private int id;
-    
+
     private float reimbursment;
     private String status="";
     private String date="";
-    
+    private String reason="";
+
     @ManyToOne
     @JoinColumn(name="FK_employeeId")
     private Employee employee;
 
     public Ticket(){}
-    
-    public Ticket(float reimbursment, String status,String date,Employee employee) {
+
+    public Ticket(float reimbursment, String status,String date,Employee employee,String reason) {
         this.reimbursment = reimbursment;
         this.status = status;
         this.date = date;
         this.employee=employee;
+        this.reason = reason;
     }
-    
-    public Ticket(int id, float reimbursment, String status,String date) {
+
+    public Ticket(int id, float reimbursment, String status,String date, String reason) {
         this.id = id;
         this.reimbursment = reimbursment;
         this.status = status;
         this.date = date;
-        
+        this.reason = reason;
     }
 
     public int getId() {
@@ -62,8 +64,8 @@ public class Ticket {
         this.status = status;
     }
 
-   
-    
+
+
     public String getDate() {
         return date;
     }
@@ -73,18 +75,26 @@ public class Ticket {
     }
 
 
-    
+
     public String print(){
-    	String s = "id: " +id+ "\tReimbursment: " + reimbursment+"\tstatus: "+status+"\tdate: "+date+"\t Employee: " + employee.getName() +"\t Employee ID: "+employee.getId();
-    	System.out.println(s);
-    	return s;
+        String s = "id: " +id+ "\tReimbursment: " + reimbursment+"\tstatus: "+status+"\tdate: "+date+"\t Employee: " + employee.getName() +"\t Employee ID: "+employee.getId();
+        System.out.println(s);
+        return s;
     }
-    
+
     public Employee getEmployee(){
-    	return this.employee;
+        return this.employee;
     }
-    
+
     public void setStatus(String st){
-    	this.status = st;
+        this.status = st;
+    }
+
+    public void setReason(String reason){
+        this.reason = reason;
+    }
+
+    public String getReason(){
+        return reason;
     }
 }

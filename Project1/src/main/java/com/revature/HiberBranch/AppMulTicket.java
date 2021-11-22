@@ -13,26 +13,26 @@ import com.revature.EmployeePrevious;
  *drop table employee;
  *drop table hibernate_sequence;
  */
-public class AppMulTicket 
+public class AppMulTicket
 {
     public static void main( String[] args ){
-        
-       
+
+
     }
-    
+
     public static void multipleTickets(){
-    	System.out.println("Multiple Tickets started...");
+        System.out.println("Multiple Tickets started...");
         EmployeeDaoImplementation dao = DaoFactory.getEmployeeDao();
         TicketDaoImplementation tdao = DaoFactory.getTicketDao();
-        
-        tdao.addTicket(1330f, "approved", "03/09/2019", 3);
-        tdao.addTicket(1740f, "approved", "05/09/202021", 4);
+
+        tdao.addTicket(1330f, "approved", "03/09/2019", 3,"Went for a hike to meet clients");
+        tdao.addTicket(1740f, "approved", "05/09/202021", 4,"I fell during business hours");
         List<Ticket> L = dao.getTicketsEmployeesId(3);
-        
+
         //This one fails:
         //List<Ticket> L = tdao.getTicketsEmployeesId(3);
         for(Ticket t : L){
-        	t.print();
+            t.print();
         }
     }
 }
