@@ -2,6 +2,8 @@ package com.revature.Servlets;
 
 import com.revature.HiberBranch.Request;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,13 +12,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 
 public class MakeTicket extends HttpServlet{
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+
+        request.getRequestDispatcher("employeeportal.html").include(request, response);
 
         float reimbursement = Float.parseFloat((request.getParameter("reimbursement")));
 

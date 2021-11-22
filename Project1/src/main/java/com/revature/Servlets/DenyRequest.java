@@ -18,7 +18,7 @@ public class DenyRequest extends HttpServlet{
 
         int id = Integer.parseInt(request.getParameter("id3"));
 
-        Request.approveRequest(id);
+        Request.rejectRequest(id);
 
         out.print("<h2>Request Denied Successfully</h2>");
     }

@@ -13,6 +13,8 @@
                 font-size: 20px;
                 margin: auto;
                 padding: 35px;
+                padding: 35px;
+                background: rgb(255, 204, 0);
             }
 
             /*https://stackoverflow.com/questions/39725592/loop-div-background-color-through-all-rainbow-colors-gradually-css*/
@@ -45,7 +47,7 @@
         </style>
 </head>
 
-<body style="background: rgb(66, 126, 255); alignment=center;">
+<body style="background: rgb(66, 126, 255);">
     <nav class="navbar navbar-light navbar-expand-lg bg-warning navigation-clean-button">
         <div class="container"><a class="navbar-brand" href="#">Revature</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
@@ -55,34 +57,38 @@
             </div>
         </div>
     </nav>
-    <h1 style="padding: 100px;background: white;">Manager Portal Actions</h1>
-    <div class="container-lg text-center text-warning" style="padding-top: 150px;">
+    <h1 style="padding: 100px;background: white; text-align: center;">Manager Portal Actions</h1>
+    <div class="container-lg text-warning" style="padding-top: 150px;">
         <div class="row">
-            <div class="col">
-                <div class="col"><a href="mgrviewpending"><button class="btn btn-danger" type="button">View Pending Requests</button></a></div>
-                <br>
-                <form method="post" action="approverequest">
+            <div class="col-lg-3"></div>
+            <div class="col"><a href="mgrviewpending"><button class="btn btn-danger" type="button">View Pending Requests</button></a></div>
+            <br>
+            <br>
+            <form method="post" action="approverequest" style="padding-right: 10px">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-danger" value="Approve Request"/>
+                    <input type="number" class="form-control" name="id2" value="Enter Ticket Number:" style="width: 146px;"/>
+                </div>
+                <div></div>
+            </form>
+            <div class="col-lg-6">
+                <div class="row">
+                <form method="post" action="denyrequest" style="padding-right: 10px">
                     <div class="form-group">
-                        <input type="submit" class="btn btn-danger" value="Approve Request"/>
-                        <input type="number" class="form-control" name="id2" value="Enter Ticket Number: "/>
+                        <input type="submit" class="btn btn-danger" value="Deny Request"/>
+                        <input type="number" class="form-control" name="id3" value="Enter Ticket Number: " style="width: 122px;">
                     </div>
                 </form>
-                <div class="row">
-                    <div class="col">
+                    <div>
                         <form method="post" action="mgrviewtickets">
                             <div class="form-group">
                                 <input type="submit" class="btn btn-danger" value="View Employee History"/>
-                                <input type="number" class="form-control" name="id" value="Enter Employee ID: "/>
-                            </div>
-                        </form>
-                        <form method="post" action="denyrequest">
-                            <div class="form-group">
-                                <input type="submit" class="btn btn-danger" value="Deny Request"/>
-                                <input type="number" class="form-control" name="id3" value="Enter Ticket Number: "/>
+                                <input type="number" class="form-control" name="id" value="Enter Employee ID: " style="width: 187px;">
                             </div>
                         </form>
                     </div>
                 </div>
+                <div class="col-lg-3"></div>
             </div>
         </div>
     </div>
