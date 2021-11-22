@@ -1,0 +1,25 @@
+package com.revature.Servlets;
+
+import com.revature.HiberBranch.Request;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class DenyRequest extends HttpServlet{
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        request.getRequestDispatcher("managerportal.html").include(request, response);
+
+        int id = Integer.parseInt(request.getParameter("id3"));
+
+        Request.rejectRequest(id);
+
+        out.print("<h2>Request Denied Successfully</h2>");
+    }
+}
