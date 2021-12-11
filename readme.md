@@ -33,4 +33,4 @@ MANAGER
 > After logging in as employee, several options appear for submitting or checking tickets
 > After logging in as manager, several options appear for managing ticket submissions or checking the history
 
-# The program automatically checks for cookies so the browser MUST accept them or logging in is not possible, and none of the program works.
+# The program automatically checks for cookies so the browser MUST accept them or logging in is not possible, and the program will not work.
